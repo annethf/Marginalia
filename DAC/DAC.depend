@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1426061800 source:e:\dacencoder\main.c
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<time.h>
+	"header.h"
+
+1426056884 e:\dacencoder\header.h
+
+1426062624 source:e:\dacencoder\encoder.c
+	<malloc.h>
+	<memory.h>
+	<math.h>
+	"header.h"
+
+1426062618 source:e:\dacencoder\decoder.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+	<memory.h>
+	<math.h>
+	"header.h"
+
+1426079466 source:e:\dac\decoder.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+	<memory.h>
+	<math.h>
+	"header.h"
+
+1426056884 e:\dac\header.h
+
+1426079502 source:e:\dac\encoder.c
+	<malloc.h>
+	<memory.h>
+	<math.h>
+	"header.h"
+
+1426079432 source:e:\dac\main.c
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<time.h>
+	"header.h"
+
