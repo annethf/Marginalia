@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1426232977 source:e:\linkedqueue\main.c
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+
