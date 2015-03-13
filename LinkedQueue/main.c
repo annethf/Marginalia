@@ -14,7 +14,7 @@ qNode *initQueue(qNode *queue)
     if(!queue)
     {
         queue = (qNode*)malloc(sizeof(qNode));
-        queue->elem = ' ';
+        queue->elem = 0;
         queue->next = NULL;
     }
     return queue;
@@ -26,7 +26,7 @@ void destroyQueue(qNode *queue)
     while(p->next)
     {
         queue = p->next;
-        p->elem = ' ';
+        p->elem = 0;
         free(p);
         p = queue;
     }
@@ -37,17 +37,17 @@ void destroyQueue(qNode *queue)
 void clearQueue(qNode *queue)
 {
     qNode *p = queue;
-    if(!p) return;
+    if(!p->next) return;
     while(p->next)
     {
-        p->elem = ' ';
         p = p->next;
+        p->elem = 0;
     }
 }
 
 int queueEmpty(qNode *queue)
 {
-    if(!queue) return 1;
+    if(!queue->next) return 1;
     else return 0;
 }
 
@@ -65,7 +65,7 @@ int queueLength(qNode *queue)
 
 char getHead(qNode *queue, char e)
 {
-    if(!queue->next) return ' ';
+    if(!queue->next) return 0;
     e = queue->next->elem;
     return e;
 }
@@ -117,15 +117,19 @@ int main()
 {
     qNode *queue = NULL;
     queue = initQueue(queue);
+    printf("empty = %d\n", queueEmpty(queue));
     enQueue(queue, 'A');
     enQueue(queue, 'B');
     enQueue(queue, 'C');
     enQueue(queue, 'D');
     enQueue(queue, 'E');
+    printf("empty = %d\n", queueEmpty(queue));
     char e = 0;
     deQueue(queue, e);
     printf("head = %c\n", getHead(queue, e));
     printf("length = %d\n", queueLength(queue));
+    queueTraverse(queue, visit);
+    clearQueue(queue);
     queueTraverse(queue, visit);
     destroyQueue(queue);
     return 0;
