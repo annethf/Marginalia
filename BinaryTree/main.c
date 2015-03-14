@@ -149,6 +149,21 @@ int depthBiTree(treeNode *tree)
     return depth;
 }
 
+int nodeNum(treeNode *tree)
+{
+    int leftNum = 0;
+    int rightNum = 0;
+
+    if(!tree) return 0;
+    else
+    {
+        leftNum = nodeNum(tree->leftChild);
+        rightNum = nodeNum(tree->rightChild);
+    }
+    int total = leftNum + rightNum + 1;
+    return total;
+}
+
 char root(treeNode *tree)
 {
     return tree->c;
@@ -246,10 +261,49 @@ treeNode *rightSiblings(treeNode *tree, char e)
     else return p->rightChild;
 }
 
+char *saveNode(treeNode *tree)
+{
+    if(!tree) return NULL;
+    char *node = (char*)malloc(sizeof(char) * nodeNum(tree));
+    char *q = node;
+    char e = 0;
+    qNode *queue = NULL;
+    queue = initQueue(queue);
+    treeNode *p = tree;
+    enQueue(queue, p->c);
+    while(!queueEmpty(queue))
+    {
+        *q = getHead(queue, e);
+        q++;
+        deQueue(queue, e);
+        if(p->leftChild)
+            enQueue(queue, p->leftChild->c);
+        if(p->rightChild)
+            enQueue(queue, p->rightChild->c);
+        p = find(tree, getHead(queue, e));
+    }
+    return node;
+}
+
 void insertChild(treeNode *tree, treeNode *p, int flag, treeNode *c)
 {
     if(!tree || !c) return;
     if(c->rightChild) return; //没有判断tree和c是否相交
+
+    //判断tree和c是否相交
+    char *saveTree = saveNode(tree);
+    char *saveC = saveNode(c);
+    int i, j, tNum, cNum;
+    i = j = 0;
+    tNum = nodeNum(tree);
+    cNum = nodeNum(c);
+    for(i = 0; i < tNum; i++)
+    {
+        for(j = 0; j < cNum; j++)
+            if(saveTree[i] == saveC[j])
+                return;
+    }
+
     if(!flag)
     {
         c->rightChild = p->leftChild;
@@ -270,13 +324,19 @@ void deleteChild(treeNode *tree, treeNode *p, int flag)
     {
         q = p->leftChild;
         if(q)
+        {
             destroyBiTree(q);
+            p->leftChild = NULL;
+        }
     }
     else
     {
         q = p->rightChild;
         if(q)
+        {
             destroyBiTree(q);
+            p->rightChild = NULL;
+        }
     }
 }
 
@@ -341,16 +401,16 @@ void printBiTree(treeNode *tree)
     }
 }
 
-//测试序列：ABC##DE#G##F###
+//测试序列：tree: ABC##DE#G##F### c:AB#### c: HK###
 int main()
 {
     treeNode *tree = NULL;
     initBiTree(tree);
     tree = createBiTree(tree);
     printBiTree(tree);
+    printf("\nnodeNum = %d\n", nodeNum(tree));
     printf("root = %c\n", root(tree));
-    printBiTree(tree);
-    printf("\ndepth = %d\n", depthBiTree(tree));
+    printf("depth = %d\n", depthBiTree(tree));
     printf("find = %c\n", find(tree, 'G')->c);
     treeNode *parent = parents(tree, 'D');
     if(parent)
@@ -387,15 +447,18 @@ int main()
     c = createBiTree(c);
     printBiTree(c);
     treeNode *p = find(tree, 'D');
+    //c插入为tree的左子树
     insertChild(tree, p, 0, c);
+    //c插入为tree的右子树
+    //insertChild(tree, p, 1, c);
     printf("\nlevelorder:\n");
     levelOrderTraverse(tree, visit);
-    insertChild(tree, p, 1, c);
+    //删除左子树
+    //deleteChild(tree, p, 0);
+    //删除右子树
+    deleteChild(tree, p, 1);
     printf("\nlevelorder:\n");
     levelOrderTraverse(tree, visit);
-//    deleteChild(tree, p, 0);
-//    printf("\nlevelorder:\n");
-//    levelOrderTraverse(tree, visit);
     clearBiTree(tree);
     printBiTree(tree);
     destroyBiTree(tree);
