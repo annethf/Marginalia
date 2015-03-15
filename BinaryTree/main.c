@@ -301,7 +301,13 @@ void insertChild(treeNode *tree, treeNode *p, int flag, treeNode *c)
     {
         for(j = 0; j < cNum; j++)
             if(saveTree[i] == saveC[j])
+            {
+                free(saveTree);
+                saveTree = NULL;
+                free(saveC);
+                saveC = NULL;
                 return;
+            }
     }
 
     if(!flag)
