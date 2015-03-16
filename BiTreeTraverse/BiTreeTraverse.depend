@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1426486595 source:e:\bitreetraverse\main.c
+	<stdio.h>
+	<stdlib.h>
+
