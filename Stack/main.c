@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #define STACK_INIT_SIZE 100
 #define STACKINCREMENT 10
 
@@ -90,9 +89,19 @@ int main()
     push(s, 3);
     push(s, 4);
     push(s, 5);
+    stackTraverse(s, visit);
+    printf("\nstack length = %d\n",stackLength(s));
     int e = getTop(s);
     printf("e = %d\n", e);
+    pop(s, e);
+    pop(s, e);
     stackTraverse(s, visit);
+    printf("\nIs stack empty: %d\n", stackEmpty(s));
+    printf("stack length = %d\n",stackLength(s));
+    clearStack(s);
+    stackTraverse(s, visit);
+    printf("Is stack empty: %d\n", stackEmpty(s));
+    printf("\nstack length = %d\n",stackLength(s));
     destroyStack(s);
     free(s);
     s = NULL;
