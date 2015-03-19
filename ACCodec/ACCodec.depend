@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1426731399 source:e:\accodec\decoder.c
+	<stdlib.h>
+	<stdio.h>
+	<memory.h>
+	"header.h"
+
+1426732146 e:\accodec\header.h
+
+1426731791 source:e:\accodec\encoder.c
+	<stdlib.h>
+	<stdio.h>
+	<memory.h>
+	"header.h"
+
+1426733304 source:e:\accodec\main.c
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<time.h>
+	<math.h>
+	"header.h"
+
