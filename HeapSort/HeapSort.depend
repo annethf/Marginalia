@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1427274136 source:e:\heapsort\main.c
+1427280452 source:e:\heapsort\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 

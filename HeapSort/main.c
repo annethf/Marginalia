@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 100
 typedef struct
@@ -47,20 +48,21 @@ void heapSort(heapType *heap)
 int main()
 {
     heapType *heap = (heapType*)malloc(sizeof(heapType));
-    heap->r[1] = 49;
-    heap->r[2] = 38;
-    heap->r[3] = 65;
-    heap->r[4] = 97;
-    heap->r[5] = 76;
-    heap->r[6] = 13;
-    heap->r[7] = 27;
-    heap->r[8] = 50;
-    heap->length = 8;
+    heap->length = 0;
+    FILE *in, *out;
+    int j = 1;
+    if(!(in = fopen("input.txt", "r"))) exit(1);
+    while(!feof(in))
+    {
+        fscanf(in, "%d", &(heap->r[j++])); //C语言从文件中把用空格分隔的整数读到数组中
+        heap->length++;
+    }
     heapSort(heap);
-    int i = 0;
-    for(i = 1; i <= heap->length; i++)
-        printf("%d ", heap->r[i]);
-    printf("\n");
+    if(!(out = fopen("output.txt","w"))) exit(1);
+    for(j = 1; j <= heap->length; j++)
+        fprintf(out, "%d ", heap->r[j]);
+    fclose(in);
+    fclose(out);
     free(heap);
     heap = NULL;
     return 0;
