@@ -28,59 +28,59 @@ void destroyQueue(pQueue *queue)
 void printQueue(pQueue *queue)
 {
     int i = 0;
-    for(i = 1; i <= queue->length; i++)
+    for(i = 0; i < queue->length; i++)
         printf("%d ", queue->data[i]);
     printf("\n");
 }
 
-int empty(pQueue *queue)
+int empty(pQueue queue)
 {
-    if(!queue->length) return 1;
+    if(!queue.length) return 1;
     else return 0;
 }
 
-int getMax(pQueue *queue)
+int getMax(pQueue queue)
 {
     if(empty(queue)) return 0;
-    return queue->data[1];
+    return queue.data[1];
 }
 
-int size(pQueue *queue)
+int size(pQueue queue)
 {
-    return queue->length;
+    return queue.length;
 }
 
 void enQueue(pQueue *queue, int newData)
 {
     if(queue->length == QUEUE_MAX_SIZE) return;
-    queue->data[(queue->length) + 1] = newData;
-    int index = (queue->length) + 1;
+    queue->data[queue->length] = newData;
+    int index = queue->length;
     int temp = 0;
-    while(queue->data[index] > queue->data[(queue->length) / 2])
+    while(queue->data[index] < queue->data[(index - 1) / 2])
     {
         temp = queue->data[index];
-        queue->data[index] = queue->data[(queue->length) / 2];
-        queue->data[(queue->length) / 2] = temp;
-        index = (queue->length) / 2;
+        queue->data[index] = queue->data[(index - 1) / 2];
+        queue->data[(index - 1) / 2] = temp;
+        index = (index - 1) / 2;
     }
     (queue->length)++;
 }
 
 int deQueue(pQueue *queue, int data)
 {
-    if(empty(queue)) return 0;
-    data = queue->data[1];
-    queue->data[1] = queue->data[queue->length];
+    if(empty(*queue)) return 0;
+    data = queue->data[0];
+    queue->data[0] = queue->data[queue->length - 1];
     queue->length--;
 
-    int rc = queue->data[1];
-    int j = 0, s = 1;
+    int rc = queue->data[0];
+    int j = 0, s = 0;
     //从完全二叉树的第一个非叶子节点开始向前逐个调整成大顶堆
-    for(j = 2 * s; j <= queue->length; j *= 2)
+    for(j = s + 1; j < queue->length; j = 2 * j + 1)
     {
-        if(j < queue->length && queue->data[j] < queue->data[j + 1])
+        if(j < queue->length - 1 && queue->data[j] > queue->data[j + 1])
             j++;
-        if(rc >= queue->data[j])
+        if(rc <= queue->data[j])
             break;
         queue->data[s] = queue->data[j];
         s = j;
@@ -93,15 +93,15 @@ int main()
 {
     pQueue *queue = NULL;
     queue = initQueue(queue);
-    enQueue(queue, 49);
-    enQueue(queue, 38);
-    enQueue(queue, 65);
-    enQueue(queue, 97);
-    enQueue(queue, 76);
-    enQueue(queue, 13);
-    enQueue(queue, 27);
-    enQueue(queue, 50);
-    enQueue(queue, 40);
+    enQueue(queue, 5);
+    enQueue(queue, 29);
+    enQueue(queue, 7);
+    enQueue(queue, 8);
+    enQueue(queue, 14);
+    enQueue(queue, 23);
+    enQueue(queue, 3);
+    enQueue(queue, 11);
+    printQueue(queue);
     int data = 0;
     data = deQueue(queue, data);
     printf("data = %d\n", data);
