@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
+#include <string.h>
 
 #define QUEUE_MAX_SIZE 100
 
@@ -57,7 +58,8 @@ void printQueue(pQueue *queue)
 {
     int i = 0;
     for(i = 0; i < queue->length; i++)
-        printf("%d      %d\n", queue->data[i].weight, queue->data[i].index);
+        printf("%d      %d\n", queue->data[i].weight,  queue->data[i].index);
+    printf("\n");
 }
 
 void enQueue(pQueue *queue, huffmanTree newData)
@@ -76,25 +78,23 @@ void enQueue(pQueue *queue, huffmanTree newData)
 int deQueue(pQueue *queue, huffmanTree data)
 {
     if(empty(*queue)) return 0;
-    data.index = queue->data[0].index;
+    copy(&data, &(queue->data[0]));
     const int i = queue->length - 1;
     copy(&(queue->data[0]), &(queue->data[i]));
     (queue->length)--;
 
     huffmanTree *node = (huffmanTree*)malloc(sizeof(huffmanTree));
     copy(node, queue->data);
-    int rc = node->weight;
     int j = 0, s = 0;
     for(j = s + 1; j < queue->length; j = 2 * j + 1)
     {
         if(j < queue->length - 1 && queue->data[j].weight > queue->data[j + 1].weight)
             j++;
-        if(rc <= queue->data[j].weight)
+        if(node->weight <= queue->data[j].weight)
             break;
         copy(&(queue->data[s]), &(queue->data[j]));
         s = j;
     }
-    queue->data[s].weight = rc;
     copy(&(queue->data[s]), node);
     free(node);
     node = NULL;
@@ -138,6 +138,7 @@ void createHuffmanTree(huffmanTree *hTree, unsigned int *weight, int n)
     int s1, s2;
     for(i = n; i < m; i++)
     {
+        //printQueue(queue);
         s1 = deQueue(queue, data);
         s2 = deQueue(queue, data);
         hTree[s1].parent = i;
@@ -157,24 +158,73 @@ void printHTree(huffmanTree *hTree, int m)
     huffmanTree *p = NULL;
     int i = 0;
     for(p = hTree, i = 0; i < m; p++, i++)
-        printf("%d ", p->weight);
-    printf("\n");
+        printf("%3d  %3d  %3d  %3d  %3d\n", p->index, p->weight, p->parent, p->leftChild, p->rightChild);
+}
+
+char** huffmanCoding(huffmanTree *hTree, char **hCode, int n)
+{
+    int i = 0;
+    int start = 0;
+    int child = 0;
+    int parent = 0;
+    char *code = (char*)malloc(n * sizeof(char));
+    code[n - 1] = '\0';
+    for(i = 0; i < n; i++)
+    {
+        start = n - 1;
+        for(child = i, parent = hTree[i].parent; parent != 0; child = parent, parent = hTree[parent].parent)
+        {
+            if(hTree[parent].leftChild == child)
+                code[--start] = '0';
+            else
+                code[--start] = '1';
+        }
+        memcpy(hCode[i], &code[start], (n - start) * sizeof(char));
+    }
+    free(code);
+    code = NULL;
+    return hCode;
 }
 
 int main()
 {
-    int n = 8;
-    int m = 2 * n - 1;
-    huffmanTree *hTree = (huffmanTree*)malloc(m * sizeof(huffmanTree));
+    int n = 8; //叶子节点个数
+    int m = 2 * n - 1; //树节点个数
+    //权重
     unsigned int *weight = (unsigned int*)malloc(sizeof(unsigned int) * n);
     weight[0] = 5; weight[1] = 29; weight[2] = 7;
     weight[3] = 8; weight[4] = 14; weight[5] = 23;
     weight[6] = 3; weight[7] = 11;
+    //Huffman树
+    huffmanTree *hTree = (huffmanTree*)malloc(m * sizeof(huffmanTree));
     createHuffmanTree(hTree, weight, n);
+    printf(" 哈夫曼树\n");
     printHTree(hTree, m);
+    //Huffman编码
+    int i = 0, j = 0;
+    huffmanTree *p = NULL;
+    char **hCode =  (char**)malloc(n * sizeof(char*));
+    for(i = 0; i < n; i++)
+        hCode[i] = (char*)malloc(n * sizeof(char));
+    hCode = huffmanCoding(hTree, hCode, n);
+    printf(" 索引  权重 父索引 左孩子 右孩子 编码值\n");
+    for(i = 0, p = hTree; i < n; p++, i++)
+    {
+        printf("%4d  %4d  %4d  %4d  %4d      ", p->index, p->weight, p->parent, p->leftChild, p->rightChild);
+        for(j = 0; j < strlen(hCode[i]); j++)
+            printf("%c", hCode[i][j]);
+        printf("\n");
+    }
     free(hTree);
     hTree = NULL;
     free(weight);
     weight = NULL;
+    for(i = 0; i < n; i++)
+    {
+        free(hCode[i]);
+        hCode[i] = NULL;
+    }
+    free(hCode);
+    hCode = NULL;
     return 0;
 }
