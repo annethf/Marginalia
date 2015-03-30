@@ -186,6 +186,32 @@ char** huffmanCoding(huffmanTree *hTree, char **hCode, int n)
     return hCode;
 }
 
+void decoding(huffmanTree *hTree, char** hCode, int n, int m)
+{
+    unsigned int* decode = (unsigned int*)malloc(sizeof(unsigned int) * n);
+    unsigned int child = 0;
+    int i = 0, j = 0;
+
+    for(i = 0; i < n; i++)
+    {
+        child = m - 1;
+        for(j = 0; j < strlen(hCode[i]); j++ )
+        {
+            if(hCode[i][j] == '0')
+                child = hTree[child].leftChild;
+            else
+                child = hTree[child].rightChild;
+        }
+        decode[i] = hTree[child].weight;
+    }
+    printf(" 解码结果：\n");
+    for(i = 0; i < n; i++)
+        printf("%4u ", decode[i]);
+    printf("\n");
+    free(decode);
+    decode = NULL;
+}
+
 int main()
 {
     int n = 8; //叶子节点个数
@@ -215,6 +241,7 @@ int main()
             printf("%c", hCode[i][j]);
         printf("\n");
     }
+    decoding(hTree, hCode, n, m);
     free(hTree);
     hTree = NULL;
     free(weight);
