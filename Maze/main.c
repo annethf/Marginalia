@@ -136,7 +136,7 @@ int mazePath(char maze[][10], posType start, posType end)
     int curStep = 1;
     sElemType e;
     do{
-            if(pass(curPos) && maze[curPos.x][curPos.y] != '1')
+            if(pass(curPos))
             {
                 footPrint(curPos);
                 e.direct = 1;
