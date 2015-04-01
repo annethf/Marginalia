@@ -85,7 +85,7 @@ void DFS(graph *g, int v, void (*visitFunc)(graph, int))
     if(w < 0 || w >= g->verNum) return;
     else
     {
-        if(!visited[v])
+        if(!visited[w])
             DFS(g, w, (*visitFunc));
         w = nextAdjVex(g, v, w);
     }
