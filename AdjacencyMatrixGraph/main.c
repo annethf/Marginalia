@@ -81,12 +81,13 @@ void DFS(graph *g, int v, void (*visitFunc)(graph, int))
 {
     visited[v] = 1;
     (*visitFunc)(*g, v);
-    int w = 0;
-    for(w = firstAdjVex(g, v); w >= 0; w = nextAdjVex(g, v, w))
+    int w = firstAdjVex(g, v);
+    if(w < 0 || w >= g->verNum) return;
+    else
     {
-        if(w >= g->verNum) break;
-        if(!visited[w])
+        if(!visited[v])
             DFS(g, w, (*visitFunc));
+        w = nextAdjVex(g, v, w);
     }
 }
 
@@ -105,8 +106,10 @@ int main()
 {
     graph *g = (graph*)malloc(sizeof(graph));
     createGraph(g);
+    printf("DFSµÝ¹é±éÀú½á¹û£º\n");
     DFSTraverse(g);
     free(g);
     g = NULL;
+    system("pause");
     return 0;
 }
