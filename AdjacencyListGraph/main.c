@@ -137,5 +137,7 @@ int main()
     createALGraph(graph);
     printALGraph(graph);
     destroyALGraph(graph);
+    free(graph);
+    graph = NULL;
     return 0;
 }
