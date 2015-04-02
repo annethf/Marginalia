@@ -2,16 +2,18 @@
 #include <stdlib.h>
 
 #define VERTEX_NUM 20
-
 #define STACK_SIZE 100
 #define INCREASE 10
+
+typedef enum{AMG, ALG}graphKind;
+int visited[VERTEX_NUM];
 
 typedef struct
 {
     char vertex[VERTEX_NUM];
     int matrix[VERTEX_NUM][VERTEX_NUM];
     int verNum, arcNum;
-} graph;
+}graph;
 void (*visitFunc)(graph, int);
 
 typedef struct
@@ -26,7 +28,6 @@ typedef struct qNode
     struct qNode *next;
 } queue;
 
-int visited[VERTEX_NUM];
 void initStack(stack *s)
 {
     s->base = (char*)malloc(sizeof(char) * STACK_SIZE);
@@ -123,7 +124,7 @@ void deQueue(queue *q, char *elem)
     p = NULL;
 }
 
-void printMatrix(graph *g)
+void printAMGraph(graph *g)
 {
     int i = 0, j = 0;
     for(i = 0; i < g->verNum; i++)
@@ -134,7 +135,7 @@ void printMatrix(graph *g)
     }
 }
 
-void createGraph(graph *g)
+void createAMGraph(graph *g)
 {
     printf("输入顶点个数和边数：\n");
     scanf("%d%d", &g->verNum, &g->arcNum);
@@ -150,7 +151,7 @@ void createGraph(graph *g)
     for(i = 0; i < g->verNum; i++)
         for(j = 0; j < g->verNum; j++)
             fscanf(fp, "%d", &g->matrix[i][j]);
-    printMatrix(g);
+    printAMGraph(g);
     fclose(fp);
 }
 
@@ -321,7 +322,7 @@ void BFSTraverse(graph *g, void (*visitFunc)(char e))
 int main()
 {
     graph *g = (graph*)malloc(sizeof(graph));
-    createGraph(g);
+    createAMGraph(g);
     printf("DFS递归遍历结果：\n");
     DFSTraverse(g);
     printf("\nDFS非递归遍历结果：\n");
