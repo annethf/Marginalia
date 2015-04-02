@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 #define VERTEX_NUM 20
-#define INFINTE  32768
 
 #define STACK_SIZE 100
 #define INCREASE 10
