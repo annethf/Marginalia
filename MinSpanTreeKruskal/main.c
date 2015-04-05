@@ -28,6 +28,12 @@ typedef struct
 
 typedef priorityQueue pQueue;
 
+typedef struct
+{
+    int parent[MAX_ARCNUM_NUM];
+    int size;
+}disjSets;
+
 pQueue* initQueue(pQueue *queue)
 {
     queue = (pQueue*)malloc(sizeof(pQueue));
@@ -54,19 +60,6 @@ int empty(pQueue queue)
 {
     if(!queue.length) return 1;
     else return 0;
-}
-
-edge getMax(pQueue queue)
-{
-    edge temp;
-    temp.start = temp.end = temp.weight = 0;
-    if(empty(queue)) return temp;
-    return queue.data[1];
-}
-
-int size(pQueue queue)
-{
-    return queue.length;
 }
 
 void copy(edge *edgeA, const edge *edgeB)
@@ -125,6 +118,34 @@ edge deQueue(pQueue *queue, edge data)
     return data;
 }
 
+//不相交集（并查集）
+void initDisjSets(adjUDN udNet, disjSets *set)
+{
+    set->size = udNet.arcNum;
+    int i = 0;
+    for(i = 0; i < set->size; i++)
+        set->parent[i] = -1;
+}
+
+int find(disjSets *set, int x)
+{
+    if(set->parent[x] < 0)
+        return x;
+    return set->parent[x] = find(set, set->parent[x]);
+}
+
+void unionSets(disjSets *set, int root1, int root2)
+{
+    if(set->parent[root2] < set->parent[root1])
+        set->parent[root1] = root2;
+    else
+    {
+        if(set->parent[root1] == set->parent[root2])
+            set->parent[root1]--;
+       set->parent[root2] = root1;
+    }
+}
+
 int locateVex(adjUDN udNet, char vex)
 {
     int i = 0;
@@ -166,17 +187,23 @@ void minSpanTreeKruskal(adjUDN udNet)
     int i = 0;
     for(i = 0; i < udNet.arcNum; i++)
         enQueue(queue, udNet.edges[i]);
+
+    disjSets set;
+    disjSets *p = &set;
+    initDisjSets(udNet, p);
+
     edge e;
     int edgesAccepted = 0;
     while(edgesAccepted < udNet.vexNum - 1)
     {
-        deQueue(queue, e);
-        setType uSet = disjSet.find(e.start);
-        setType vSet = disjSet.find(e.end);
+        e = deQueue(queue, e);
+        int uSet = find(p, e.start - 65);
+        int vSet = find(p, e.end - 65);
         if(uSet != vSet)
         {
             edgesAccepted++;
-            disjSet.unionSets(uSet, vSet);
+            printf("(%c, %c, %d)", e.start, e.end, e.weight);
+            unionSets(p, uSet, vSet);
         }
     }
     destroyQueue(queue);
@@ -192,16 +219,6 @@ int main()
     adjUDN udNet;
     adjUDN *p = &udNet;
     createAdjUDN(p);
-    pQueue *queue = NULL;
-    queue = initQueue(queue);
-    int i = 0;
-    for(i = 0; i < udNet.arcNum; i++)
-        enQueue(queue, udNet.edges[i]);
-    printQueue(*queue);
-    edge e;
-    e = deQueue(queue, e);
-    printf("(%c,%c,%u)\n", e.start, e.end, e.weight);
-    printQueue(*queue);
-    destroyQueue(queue);
+    minSpanTreeKruskal(udNet);
     return 0;
 }
