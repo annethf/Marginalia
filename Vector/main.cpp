@@ -16,10 +16,17 @@ int main()
          a.pushBack(number);
          out << number << " ";
     }
-    for(int i = 0; i < a.Size(); i++)
-        cout << a[i] << " ";
+    //Back()const
+    cout << "[ Back = " << a.Back() << " ]" << endl;
+    //Iterator
+    for(Vector<int>::Iterator itr = a.Begin(); itr != a.End(); ++itr)
+        cout << *itr << " ";
     cout << endl;
+    //operator=
     b = a;
+    //¿½±´¹¹Ôìº¯Êı
+    Vector<int> c = b;
+    //operator[]
     for(int i = 0; i < b.Size(); i++)
         cout << b[i] << " ";
     cout << endl;

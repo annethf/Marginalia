@@ -28,6 +28,31 @@ public:
     void pushBack(const Object &x);
     void popBack();
     const Object &Back() const;
+    //第一次见到
+    typedef Object * Iterator;
+    typedef const Object * const_Iterator;
+
+    Iterator Begin();
+    const_Iterator Begin() const;
+    Iterator End();
+    const_Iterator End() const;
+    /**正确的做法
+    Iterator Begin()
+    {
+        return &objects[0];
+    }
+    const_Iterator Begin() const;
+    {
+        return &objects[0];
+    }
+    Iterator End()
+    {
+        return &objects[Size()];
+    }
+    const_Iterator End() const
+    {
+        return &objects[Size()];
+    }**/
 private:
     int theSize;
     int theCapacity;
@@ -35,7 +60,8 @@ private:
     static const int SPARE_CAPACITY = 10;
 };
 
-template <typename Object> const Vector<Object>& Vector<Object>::operator= (const Vector<Object> &rhs)
+template <typename Object>
+const Vector<Object>& Vector<Object>::operator= (const Vector<Object> &rhs)
 {
     if(this != &rhs)
     {
@@ -50,14 +76,16 @@ template <typename Object> const Vector<Object>& Vector<Object>::operator= (cons
     return *this;
 }
 
-template <typename Object> void Vector<Object>::reSize(int newSize)
+template <typename Object>
+void Vector<Object>::reSize(int newSize)
 {
     if(newSize > theCapacity)
         reServe(newSize * 2 + 1);
     theSize = newSize;
 }
 
-template <typename Object> void Vector<Object>::reServe(int newCapacity)
+template <typename Object>
+void Vector<Object>::reServe(int newCapacity)
 {
     if(newCapacity < theSize)
         return;
@@ -72,46 +100,104 @@ template <typename Object> void Vector<Object>::reServe(int newCapacity)
     delete [] oldArray;
 }
 
-template <typename Object> int Vector<Object>::Size() const
+template <typename Object>
+int Vector<Object>::Size() const
 {
     return theSize;
 }
 
-template <typename Object> int Vector<Object>::Capacity() const
+template <typename Object>
+int Vector<Object>::Capacity() const
 {
     return theCapacity;
 }
 
-template <typename Object> bool Vector<Object>::isEmpty() const
+template <typename Object>
+bool Vector<Object>::isEmpty() const
 {
     return Size() == 0;
 }
 
-template <typename Object> void Vector<Object>::pushBack(const Object &x)
+template <typename Object>
+void Vector<Object>::pushBack(const Object &x)
 {
     if(theSize == theCapacity)
         reServe(2 * theCapacity + 1);
     objects[theSize++] = x;
 }
 
-template <typename Object> void Vector<Object>::popBack()
+template <typename Object>
+void Vector<Object>::popBack()
 {
     theSize--;
 }
 
-template <typename Object> const Object& Vector<Object>::Back() const
+template <typename Object>
+const Object& Vector<Object>::Back() const
 {
     return objects[theSize - 1];
 }
 
-template <typename Object> Object& Vector<Object>::operator[] (int index)
+template <typename Object>
+Object& Vector<Object>::operator[] (int index)
 {
     return objects[index];
 }
 
-template <typename Object> const Object& Vector<Object>::operator[] (int index) const
+template <typename Object>
+const Object& Vector<Object>::operator[] (int index) const
 {
     return objects[index];
+}
+
+/**错误的做法
+template <typename Object>
+Iterator Vector<Object>::Begin()
+{
+    return &objects[0];
+}
+
+template <typename Object>
+const_Iterator Vector<Object>::Begin() const
+{
+    return &objects[0];
+}
+
+template <typename Object>
+Iterator Vector<Object>::End()
+{
+    return &objects[Size()];
+}
+
+template <typename Object>
+Vector::const_Iterator Vector<Object>::End() const
+{
+    return &objects[Size()];
+}**/
+
+/**正确的做法**/
+template <typename Object>
+typename Vector<Object>::Iterator Vector<Object>::Begin()
+{
+    return &objects[0];
+}
+
+template <typename Object>
+typename Vector<Object>::const_Iterator Vector<Object>::Begin() const
+{
+    return &objects[0];
+}
+
+template <typename Object>
+typename Vector<Object>::Iterator Vector<Object>::End()
+{
+    return &objects[Size()];
+}
+
+template <typename Object>
+typename Vector<Object>::const_Iterator Vector<Object>::End() const
+{
+    return &objects[Size()];
 }
 
 #endif // VECTOR_H
