@@ -46,23 +46,11 @@ char precede(char a, char b)
         if(b == '#')
             temp = '=';
         break;
-    case '0':
-    case '1':
-    case '2':
-    case '3':
-    case '4':
-    case '5':
-    case '6':
-    case '7':
-    case '8':
-    case '9':
-        temp = '!';
-        break;
     }
     return temp;
 }
 
-char operate(double a, char b, double c)
+int operate(int a, char b, int c)
 {
     double num3 = 0;
     switch(b)
@@ -93,7 +81,7 @@ double calculate(int result, list<char> expList)
     sOperator.push('#');
     list<char>::iterator iter = expList.begin();
     c = *iter;
-    while(iter != expList.end())
+    while(c != '#' || sOperator.top() != '#')
     {
         if(!isOperator(c))
         {
@@ -103,7 +91,6 @@ double calculate(int result, list<char> expList)
                 sOperand.pop();
                 int num = tmp * 10 + c - '0';
                 sOperand.push(num);
-                flag = false;
             }
             else
             {
@@ -121,10 +108,12 @@ double calculate(int result, list<char> expList)
             case '<':
                 sOperator.push(c);
                 c = *(++iter);
+                flag = false;
                 break;
             case '=':
                 sOperator.pop();
                 c = *(++iter);
+                flag = false;
                 break;
             case '>':
                 theta = sOperator.top();
