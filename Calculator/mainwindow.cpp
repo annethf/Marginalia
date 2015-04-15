@@ -55,23 +55,11 @@ char MainWindow::precede(char a, char b)
         if(b == '#')
             temp = '=';
         break;
-    case '0':
-    case '1':
-    case '2':
-    case '3':
-    case '4':
-    case '5':
-    case '6':
-    case '7':
-    case '8':
-    case '9':
-        temp = '!';
-        break;
     }
     return temp;
 }
 
-char MainWindow::operate(int a, char b, int c)
+int MainWindow::operate(int a, char b, int c)
 {
     double num3 = 0;
     switch(b){
@@ -97,34 +85,48 @@ int MainWindow::calculate()
     QStack<double> sOperand;
     char c, theta;
     double a, b, temp;
-    int i = 0;
-
+    bool flag = false;
+    QList<char>::Iterator iter = expList.begin();
+    c = *iter;
     sOperator.push('#');
-    while(!sOperator.empty())
+    while(c != '#' || sOperator.top() != '#')
     {
-        c = expList.takeAt(i);
         if(!isOperator(c))
         {
-            sOperand.push(c - 48);
-            ++i;
+            if(flag)
+            {
+                int tmp = sOperand.top();
+                sOperand.pop();
+                int num = tmp * 10 + c - '0';
+                sOperand.push(num);
+            }
+            else
+            {
+                sOperand.push(c - '0');
+                flag = true;
+            }
+            c = *(++iter);
             continue;
         }
         else
         {
-            switch(precede(sOperator.pop(), c)){
+            char symbol = precede(sOperator.top(), c);
+            switch(symbol){
             case '<':
                 sOperator.push(c);
-                ++i;
+                c = *(++iter);
+                flag = false;
                 break;
             case '=':
                 sOperator.pop();
-                ++i;
+                c = *(++iter);
+                flag = false;
                 break;
             case '>':
                 theta = sOperator.pop();
-                a = sOperand.pop();
+                a =  sOperand.pop();
                 b = sOperand.pop();
-                temp = operate(a, theta, b);
+                temp = operate(b, theta, a);
                 sOperand.push(temp);
                 break;
             case '!':
@@ -132,32 +134,201 @@ int MainWindow::calculate()
             }
         }
     }
-    return sOperand.front();
+    return sOperand.top();
+}
+
+void MainWindow::on_zero_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+        ui->lineEdit->setText("0");
+    }
+    else if(expList.empty());
+    else
+    {
+        exp += "0";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('0');
 }
 
 void MainWindow::on_one_clicked()
 {
-    exp = "1";
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "1";
+        ui->lineEdit->setText("1");
+    }
+    else
+    {
+        exp += "1";
+        ui->lineEdit->setText(exp);
+    }
     expList.push_back('1');
-    ui->lineEdit->setText(exp);
 }
 
 void MainWindow::on_two_clicked()
 {
-    exp = "2";
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "2";
+        ui->lineEdit->setText("2");
+    }
+    else
+    {
+        exp += "2";
+        ui->lineEdit->setText(exp);
+    }
     expList.push_back('2');
-    ui->lineEdit->setText(exp);
+}
+
+void MainWindow::on_three_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "3";
+        ui->lineEdit->setText("3");
+    }
+    else
+    {
+        exp += "3";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('3');
+}
+
+void MainWindow::on_four_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "4";
+        ui->lineEdit->setText("4");
+    }
+    else
+    {
+        exp += "4";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('4');
+}
+
+void MainWindow::on_five_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "5";
+        ui->lineEdit->setText("5");
+    }
+    else
+    {
+        exp += "5";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('5');
+}
+
+void MainWindow::on_six_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "6";
+        ui->lineEdit->setText("6");
+    }
+    else
+    {
+        exp += "6";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('6');
+}
+
+void MainWindow::on_seven_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "7";
+        ui->lineEdit->setText("7");
+    }
+    else
+    {
+        exp += "7";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('7');
+}
+
+void MainWindow::on_eight_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "8";
+        ui->lineEdit->setText("8");
+    }
+    else
+    {
+        exp += "8";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('8');
+}
+
+void MainWindow::on_nine_clicked()
+{
+    if(!expList.empty() && isOperator(expList.last()))
+    {
+        ui->lineEdit->clear();
+        exp.clear();
+
+        exp += "9";
+        ui->lineEdit->setText("9");
+    }
+    else
+    {
+        exp += "9";
+        ui->lineEdit->setText(exp);
+    }
+    expList.push_back('9');
 }
 
 void MainWindow::on_plus_clicked()
 {
-    exp = "+";
     expList.push_back('+');
-    ui->lineEdit->setText(exp);
+}
+
+void MainWindow::on_subduct_clicked()
+{
+    expList.push_back('-');
 }
 
 void MainWindow::on_equalButton_clicked()
 {
+    expList.push_back('#');
     result = calculate();
     if(result != -1)
     {
@@ -165,3 +336,4 @@ void MainWindow::on_equalButton_clicked()
         ui->lineEdit->setText(exp);
     }
 }
+

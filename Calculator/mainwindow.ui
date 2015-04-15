@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>325</width>
-    <height>366</height>
+    <height>367</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -237,7 +237,7 @@
              </widget>
             </item>
             <item row="2" column="3">
-             <widget class="QPushButton" name="pushButton_mi">
+             <widget class="QPushButton" name="subduct">
               <property name="font">
                <font>
                 <pointsize>24</pointsize>
