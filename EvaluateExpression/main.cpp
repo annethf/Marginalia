@@ -14,7 +14,8 @@ bool isOperator(const char c)
 char precede(char a, char b)
 {
     char temp;
-    switch(a){
+    switch(a)
+    {
     case '+':
     case '-':
         if(b == '+' || b == '-' || b == ')' || b == '#')
@@ -64,7 +65,8 @@ char precede(char a, char b)
 char operate(double a, char b, double c)
 {
     double num3 = 0;
-    switch(b){
+    switch(b)
+    {
     case '+':
         num3 = a + c;
         break;
@@ -81,13 +83,13 @@ char operate(double a, char b, double c)
     return num3;
 }
 
-double calculate(double result, list<char> expList)
+double calculate(int result, list<char> expList)
 {
     stack<char> sOperator;
-    stack<double> sOperand;
+    stack<int> sOperand;
     char c, theta;
-    double a, b, temp;
-
+    int a, b, temp;
+    bool flag = false;
     sOperator.push('#');
     list<char>::iterator iter = expList.begin();
     c = *iter;
@@ -95,21 +97,34 @@ double calculate(double result, list<char> expList)
     {
         if(!isOperator(c))
         {
-            sOperand.push(c - 48);
+            if(flag)
+            {
+                int tmp = sOperand.top();
+                sOperand.pop();
+                int num = tmp * 10 + c - '0';
+                sOperand.push(num);
+                flag = false;
+            }
+            else
+            {
+                sOperand.push(c - '0');
+                flag = true;
+            }
             c = *(++iter);
             continue;
         }
         else
         {
             char symbol = precede(sOperator.top(), c);
-            switch(symbol){
+            switch(symbol)
+            {
             case '<':
                 sOperator.push(c);
                 c = *(++iter);
                 break;
             case '=':
                 sOperator.pop();
-               c = *(++iter);
+                c = *(++iter);
                 break;
             case '>':
                 theta = sOperator.top();
@@ -141,10 +156,14 @@ int main()
     }
     exp.push_back('#');
     list<char>::iterator iter = exp.begin();
-    for(; iter != exp.end(); ++iter)
-        cout << *iter << " ";
+    for(; iter != --exp.end(); ++iter)
+    {
+        if(isOperator(*iter))
+            cout << " " << *iter << " ";
+        else cout << *iter;
+    }
     double result = 0.0;
     result = calculate(result, exp);
-    cout << "= " << result << endl;
-   return 0;
+    cout << " = " << result << endl;
+    return 0;
 }
