@@ -126,7 +126,7 @@
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="QPushButton" name="pushButton_qy">
+             <widget class="QPushButton" name="leftBraket">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                 <horstretch>0</horstretch>
@@ -150,7 +150,7 @@
              </widget>
             </item>
             <item row="0" column="3">
-             <widget class="QPushButton" name="pushButton_de">
+             <widget class="QPushButton" name="devision">
               <property name="font">
                <font>
                 <pointsize>24</pointsize>
@@ -201,7 +201,7 @@
              </widget>
             </item>
             <item row="1" column="3">
-             <widget class="QPushButton" name="pushButton_mu">
+             <widget class="QPushButton" name="multiplication">
               <property name="font">
                <font>
                 <pointsize>24</pointsize>
@@ -261,7 +261,7 @@
              </widget>
             </item>
             <item row="0" column="2">
-             <widget class="QPushButton" name="pushButton_c">
+             <widget class="QPushButton" name="clear">
               <property name="font">
                <font>
                 <pointsize>24</pointsize>
@@ -273,7 +273,7 @@
              </widget>
             </item>
             <item row="4" column="2">
-             <widget class="QPushButton" name="pushButton_po">
+             <widget class="QPushButton" name="point">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                 <horstretch>0</horstretch>
@@ -303,7 +303,7 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QPushButton" name="pushButton_qd">
+             <widget class="QPushButton" name="rightBracket">
               <property name="font">
                <font>
                 <pointsize>24</pointsize>

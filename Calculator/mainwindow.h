@@ -7,6 +7,9 @@
 #include <QLineEdit>
 #include <QList>
 #include <QStack>
+#include <iostream>
+
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -20,10 +23,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 private:
-    int calculate();
+    double calculate();
     bool isOperator(const char c);
+    bool isPoint(const char c);
     char precede(char a, char b);
-    int operate(int a, char b, int c);
+    double operate(double a, char b, double c);
 
 private slots:
     void on_one_clicked();
@@ -38,8 +42,18 @@ private slots:
     void on_eight_clicked();
     void on_nine_clicked();
     void on_zero_clicked();
-
     void on_subduct_clicked();
+    void on_point_clicked();
+
+    void on_multiplication_clicked();
+
+    void on_devision_clicked();
+
+    void on_clear_clicked();
+
+    void on_leftBraket_clicked();
+
+    void on_rightBracket_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -54,7 +68,8 @@ private:
 
     QString exp;
     QList<char> expList;
-    int result;
+    double result;
+    static const double INFINITE;
 };
 
 #endif // MAINWINDOW_H
