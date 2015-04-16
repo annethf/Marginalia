@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <stack>
+#define INFINITE 65535
 
 using namespace std;
 
@@ -10,6 +11,12 @@ bool isOperator(const char c)
         return true;
     return false;
 }
+
+bool isPoint(const char c)
+{
+    return (c == '.') ? true : false;
+}
+
 //中缀表达式求值的算符优先关系
 char precede(char a, char b)
 {
@@ -50,9 +57,9 @@ char precede(char a, char b)
     return temp;
 }
 
-int operate(int a, char b, int c)
+double operate(double a, char b, double c)
 {
-    double num3 = 0;
+    double num3 = INFINITE;
     switch(b)
     {
     case '+':
@@ -65,19 +72,30 @@ int operate(int a, char b, int c)
         num3 = a * c;
         break;
     case '/':
-        num3 = a / c;
+        try
+        {
+            if(c == 0)
+                throw "除数为0了";
+            num3 = a / c;
+        }
+        catch(const char* str)
+        {
+            cout << str << endl;
+        }
         break;
     }
     return num3;
 }
 
-double calculate(int result, list<char> expList)
+double calculate(double result, list<char> expList)
 {
     stack<char> sOperator;
-    stack<int> sOperand;
+    stack<double> sOperand;
     char c, theta;
-    int a, b, temp;
-    bool flag = false;
+    double a, b, temp, num, tmp;
+    bool fLongInteger = false;
+    bool fDecimal = false;
+    int pCounter = 0;
     sOperator.push('#');
     list<char>::iterator iter = expList.begin();
     c = *iter;
@@ -85,20 +103,68 @@ double calculate(int result, list<char> expList)
     {
         if(!isOperator(c))
         {
-            if(flag)
+            if(isPoint(c))
             {
-                int tmp = sOperand.top();
-                sOperand.pop();
-                int num = tmp * 10 + c - '0';
-                sOperand.push(num);
+                fDecimal = true;
+                fLongInteger = false;
+                c = *(++iter);
+                continue;
             }
             else
             {
-                sOperand.push(c - '0');
-                flag = true;
+                if(fDecimal)
+                {
+                    tmp = sOperand.top();
+                    sOperand.pop();
+                    ++pCounter;
+                    switch(pCounter)
+                    {
+                    case 1:
+                        num = tmp + (double)(c - '0') / 10;
+                        break;
+                    case 2:
+                        num = tmp + (double)(c - '0') / 100;
+                        break;
+                    case 3:
+                        num = tmp + (double)(c - '0') / 1000;
+                        break;
+                    case 4:
+                        num = tmp + (double)(c - '0') / 10000;
+                        break;
+                    case 5:
+                        num = tmp + (double)(c - '0') / 100000;
+                        break;
+                    case 6:
+                        num = tmp + (double)(c - '0') / 1000000;
+                        break;
+                    case 7:
+                        num = tmp + (double)(c - '0') / 10000000;
+                        break;
+                    case 8:
+                        num = tmp + (double)(c - '0') / 100000000;
+                        break;
+                    }
+                    sOperand.push(num);
+                    c = *(++iter);
+                    continue;
+                }
+                if(fLongInteger)
+                {
+                    tmp = sOperand.top();
+                    sOperand.pop();
+                    num = tmp * 10 + c - '0';
+                    sOperand.push(num);
+                    c = *(++iter);
+                    continue;
+                }
+                else
+                {
+                    sOperand.push(c - '0');
+                    fLongInteger = true;
+                    c = *(++iter);
+                    continue;
+                }
             }
-            c = *(++iter);
-            continue;
         }
         else
         {
@@ -108,12 +174,16 @@ double calculate(int result, list<char> expList)
             case '<':
                 sOperator.push(c);
                 c = *(++iter);
-                flag = false;
+                fLongInteger = false;
+                fDecimal = false;
+                pCounter = 0;
                 break;
             case '=':
                 sOperator.pop();
                 c = *(++iter);
-                flag = false;
+                fLongInteger = false;
+                fDecimal = false;
+                pCounter = 0;
                 break;
             case '>':
                 theta = sOperator.top();
@@ -125,8 +195,6 @@ double calculate(int result, list<char> expList)
                 temp = operate(b, theta, a);
                 sOperand.push(temp);
                 break;
-            case '!':
-                return -1;
             }
         }
     }
