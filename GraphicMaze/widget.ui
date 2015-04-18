@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
+    <width>1046</width>
     <height>555</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>720</x>
+     <x>766</x>
      <y>135</y>
      <width>263</width>
      <height>429</height>
@@ -216,8 +216,6 @@ p, li { white-space: pre-wrap; }
     </item>
    </layout>
   </widget>
-  <zorder>layoutWidget</zorder>
-  <zorder></zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

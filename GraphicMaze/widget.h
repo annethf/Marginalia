@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QPoint>
 #include <QPushButton>
+#include <QtGlobal>
+#include "time.h"
 #include <iostream>
 
 using namespace std;
@@ -23,7 +25,7 @@ public:
 
     void init();
     int find(int x);
-    void unionSet(int root1, int root2);
+    void unionSet(int x, int y);
     void createMaze();
 
 protected:
@@ -36,8 +38,8 @@ private:
     Ui::Widget *ui;
     const int width;
     const int height;
-    int parent[195];
-    int mazeSet[14][14];
+    int parent[49];
+    //int mazeSet[14][14];
     QPushButton createButton;
     bool flag;
 
