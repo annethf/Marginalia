@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1429501554 source:e:\gmazetest\main.cpp
+	<iostream>
+	<time.h>
+	<stdlib.h>
+
