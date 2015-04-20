@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1429542353 source:e:\chartobin\main.cpp
+	<iostream>
+	<map>
+	<fstream>
+	<ostream>
+	<list>
+	<string>
+
