@@ -1,0 +1,12 @@
+static int getFileSize(const char *file)
+{
+    struct stat tbuf;
+    stat(file, &tbuf);
+    return tbuf.st_size;
+}
+
+或
+struct stat buf;
+stat("encoder.c", &buf); //encoder.c是待求的文件名
+//printf("%d\n", (int)buf.st_size); //buf.st_size返回的就是文件的大小
+srcSymbolNum = (int)buf.st_size << 3;
