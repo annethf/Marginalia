@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1430217245 source:e:\braces\main.cpp
+	<iostream>
+	<fstream>
+	<stack>
+
