@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1431355844 source:e:\scrabble\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<ctime>
+	<cstdio>
+	<cstdlib>
+
