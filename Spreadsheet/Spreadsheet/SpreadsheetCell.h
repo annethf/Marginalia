@@ -1,3 +1,6 @@
+#ifndef __SPREADSHEETCELL__
+#define __SPREADSHEETCELL__
+
 #include <iostream>
 #include <string>
 #include <initializer_list>
@@ -34,9 +37,19 @@ public:
 	double getValue() const;
 	void setString(string inString);
 	string getString() const;
+
+	//静态方法的声明，一个方法声明为静态之后，其后就不能再加const；因为不允许将静态方法声明为const
+	//静态方法的语义是这一方法将被应用于全部类对象，而不是单个对象
+	static string double2String(double val);
+
+	//static double stringToDouble(const string& str);
+
 protected:
 	string doubleToString(double inValue) const;
 	double stringToDouble(string inString) const;
 	double mValue;
 	string mString;
+
 };
+
+#endif

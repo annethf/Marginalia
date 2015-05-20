@@ -33,6 +33,9 @@
     <ClInclude Include="Spreadsheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SpreadsheetApplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PointSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpreadsheetApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

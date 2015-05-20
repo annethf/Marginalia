@@ -5,6 +5,9 @@
 
 using namespace std;
 
+//可以在类的任意地方调用共有的静态方法
+string str = SpreadsheetCell::double2String(5);
+
 SpreadsheetCell::SpreadsheetCell(double initialValue)
 {
 	setValue(initialValue);
@@ -59,6 +62,13 @@ void SpreadsheetCell::setString(string inString)
 string SpreadsheetCell::getString() const
 {
 	return mString;
+}
+
+string SpreadsheetCell::double2String(double val)
+{
+	ostringstream ostr;
+	ostr << val;
+	return ostr.str();
 }
 
 string SpreadsheetCell::doubleToString(double inValue) const

@@ -1,13 +1,13 @@
-﻿Build started 2015-05-19 14:30:36.
+﻿Build started 2015-05-20 15:04:40.
      1>Project "E:\VS2013Project\Visual C++ Project\Spreadsheet\Spreadsheet\Spreadsheet.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Spreadsheet.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Spreadsheet.cpp
-         Spreadsheet.cpp
-     1>e:\vs2013project\visual c++ project\spreadsheet\spreadsheet\spreadsheet.cpp(100): warning C4715: 'Spreadsheet::inRange' : not all control paths return a value
+         D:\Program Files\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Spreadsheet.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SpreadsheetCell.cpp
+         SpreadsheetCell.cpp
        Link:
          D:\Program Files\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\VS2013Project\Visual C++ Project\Spreadsheet\Debug\Spreadsheet.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\VS2013Project\Visual C++ Project\Spreadsheet\Debug\Spreadsheet.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\VS2013Project\Visual C++ Project\Spreadsheet\Debug\Spreadsheet.lib" /MACHINE:X86 Debug\main.obj
          Debug\PointSequence.obj
          Debug\Spreadsheet.obj
+         Debug\SpreadsheetApplication.obj
          Debug\SpreadsheetCell.obj
          Debug\stdafx.obj
          Spreadsheet.vcxproj -> E:\VS2013Project\Visual C++ Project\Spreadsheet\Debug\Spreadsheet.exe
@@ -15,4 +15,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:00.82

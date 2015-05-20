@@ -4,8 +4,12 @@
 #include "stdafx.h"
 #include "Spreadsheet.h"
 
-Spreadsheet::Spreadsheet(int inWidth, int inHeight) :
-	mWidth(inWidth), mHeight(inHeight)
+//可以在类的任意地方访问共有的静态数据成员
+int height = Spreadsheet::kMaxHeight;
+
+Spreadsheet::Spreadsheet(int inWidth, int inHeight, SpreadsheetApplication& theApp) :
+	mWidth(inWidth < kMaxWidth ? inWidth : kMaxWidth),
+	mHeight(inHeight < kMaxHeight ? inHeight : kMaxHeight), mTheApp(theApp)
 {
 	//动态分配二维数组
 	mCells = new SpreadsheetCell*[mWidth];
@@ -29,7 +33,7 @@ void Spreadsheet::copyFrom(const Spreadsheet& src)
 }
 
 //复制构造函数，在这里不需要删除已有的二维指针mCells，因为这是一个复制构造函数，因此在this对象中还没有mCells
-Spreadsheet::Spreadsheet(const Spreadsheet& src)
+Spreadsheet::Spreadsheet(const Spreadsheet& src) : mTheApp(src.mTheApp)
 {
 	mWidth = src.mWidth;
 	mHeight = src.mHeight;
@@ -97,4 +101,5 @@ bool Spreadsheet::inRange(int val, int upper)
 {
 	if (val != upper)
 		return true;
+	return false;
 }

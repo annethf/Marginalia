@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="PointSequence.h" />
     <ClInclude Include="Spreadsheet.h" />
+    <ClInclude Include="SpreadsheetApplication.h" />
     <ClInclude Include="SpreadsheetCell.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -89,6 +90,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PointSequence.cpp" />
     <ClCompile Include="Spreadsheet.cpp" />
+    <ClCompile Include="SpreadsheetApplication.cpp" />
     <ClCompile Include="SpreadsheetCell.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

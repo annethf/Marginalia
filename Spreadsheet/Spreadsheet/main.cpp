@@ -77,6 +77,7 @@
 
 #include "stdafx.h"
 #include "SpreadsheetCell.h"
+#include "Spreadsheet.h"
 #include "PointSequence.h"
 
 int _tmain(int argc, _TCHAR* argv[])
