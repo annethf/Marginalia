@@ -1,0 +1,166 @@
+﻿生成启动时间为 2015/5/5 22:33:56。
+     1>项目“E:\dafang\VectorDistance3\VectorDistance3\VectorDistance3.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\VectorDistance3.lastbuildstate”。
+       CudaClean:
+         cmd.exe /C "C:\Users\Administrator\AppData\Local\Temp\48d8a40026d14a52b840d5a84eca2666.cmd"
+         "C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu" -clean
+         
+         E:\dafang\VectorDistance3\VectorDistance3>"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu" -clean 
+         正在删除文件“Debug\kernel.cu.deps”。
+       InitializeBuildStatus:
+         正在创建“Debug\VectorDistance3.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       AddCudaCompileDeps:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /D_MBCS /I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c E:\dafang\VectorDistance3\VectorDistance3\kernel.cu 
+       AddCudaCompilePropsDeps:
+         已找到“CudaToolkitCustomDir”。
+         已找到“AdditionalDeps”。
+         已找到“CompileOut”。
+         已找到“Include”。
+         已找到“UseHostInclude”。
+         已找到“Keep”。
+         已找到“KeepDir”。
+         已找到“GenerateRelocatableDeviceCode”。
+         已找到“NvccCompilation”。
+         已找到“NvccPath”。
+         已找到“RequiredIncludes”。
+         已找到“TargetMachinePlatform”。
+         已找到“CInterleavedPTX”。
+         已找到“CodeGeneration”。
+         已找到“GPUDebugInfo”。
+         已找到“GenerateLineInfo”。
+         已找到“MaxRegCount”。
+         已找到“PtxAsOptionV”。
+         已找到“AdditionalCompilerOptions”。
+         已找到“Defines”。
+         已找到“UseHostDefines”。
+         已找到“Emulation”。
+         已找到“HostDebugInfo”。
+         已找到“FastMath”。
+         已找到“Optimization”。
+         已找到“Runtime”。
+         已找到“RuntimeChecks”。
+         已找到“TypeInfo”。
+         已找到“Warning”。
+         已找到“AdditionalOptions”。
+         已找到“CommandLineTemplate”。
+         已找到“PerformDeviceLink”。
+         已找到“LinkOut”。
+         已找到“AdditionalLibraryDirectories”。
+         已找到“UseHostLibraryDirectories”。
+         已找到“AdditionalDependencies”。
+         已找到“UseHostLibraryDependencies”。
+         已找到“GPUDebugInfo”。
+         已找到“Optimization”。
+         已找到“CodeGeneration”。
+         已找到“TargetMachinePlatform”。
+         已找到“Warning”。
+         已找到“RuntimeChecks”。
+         已找到“Runtime”。
+         已找到“TypeInfo”。
+         已找到“AdditionalCompilerOptions”。
+         已找到“Inputs”。
+         已找到“AdditionalOptions”。
+         已找到“CommandLineTemplate”。
+       CudaBuild:
+         Compiling CUDA source file kernel.cu...
+         cmd.exe /C "C:\Users\Administrator\AppData\Local\Temp\ae010fd5c495423bb0e9b6f1e453b282.cmd"
+         "C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu"
+         
+         E:\dafang\VectorDistance3\VectorDistance3>"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu" 
+         kernel.cu
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(876): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(1846): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(2750): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(3698): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(4608): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(5503): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(6405): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(7317): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(783): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(1662): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\device_functions.h(783): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\device_functions.h(1662): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         tmpxft_000011e8_00000000-2_kernel.cudafe1.gpu
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(876): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(1846): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(2750): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(3698): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(4608): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(5503): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(6405): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(7317): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         tmpxft_000011e8_00000000-7_kernel.cudafe2.gpu
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(876): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(1846): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(2750): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(3698): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(4608): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(5503): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(6405): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(7317): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(783): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(1662): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         kernel.cu
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(876): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(1846): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(2750): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(3698): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(4608): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(5503): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(6405): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(7317): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(783): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(1662): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\device_functions.h(783): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\device_functions.h(1662): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         tmpxft_000011e8_00000000-2_kernel.cudafe1.cpp
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(876): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(1846): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(2750): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(3698): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(4608): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(5503): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(6405): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(7317): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         tmpxft_000011e8_00000000-12_kernel.ii
+     1>E:/dafang/VectorDistance3/VectorDistance3/kernel.cu(75): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+         正在删除文件“tmpxft_000011e8_00000000-8_kernel.cpp3.o”。
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\VectorDistance3.exe.embed.manifest.res" Debug\VectorDistance3_manifest.rc 
+       Link:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\dafang\VectorDistance3\Debug\VectorDistance3.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\lib\Win32" cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\VectorDistance3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\dafang\VectorDistance3\Debug\VectorDistance3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\dafang\VectorDistance3\Debug\VectorDistance3.lib" /MACHINE:X86 Debug\kernel.cu.obj
+         Debug\VectorDistance3.exe.embed.manifest.res
+       Manifest:
+         正在删除文件“Debug\VectorDistance3.exe.embed.manifest”。
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\VectorDistance3.exe.embed.manifest" /manifest Debug\VectorDistance3.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\VectorDistance3.exe.embed.manifest.res" Debug\VectorDistance3_manifest.rc 
+       LinkEmbedManifest:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\dafang\VectorDistance3\Debug\VectorDistance3.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\lib\Win32" cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\VectorDistance3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\dafang\VectorDistance3\Debug\VectorDistance3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\dafang\VectorDistance3\Debug\VectorDistance3.lib" /MACHINE:X86 Debug\kernel.cu.obj
+         Debug\VectorDistance3.exe.embed.manifest.res
+         VectorDistance3.vcxproj -> E:\dafang\VectorDistance3\Debug\VectorDistance3.exe
+       PostBuildEvent:
+         echo copy "C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\cudart*.dll" "E:\dafang\VectorDistance3\Debug\"
+         copy "C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\cudart*.dll" "E:\dafang\VectorDistance3\Debug\"
+         :VCEnd
+         copy "C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\cudart*.dll" "E:\dafang\VectorDistance3\Debug\"
+         C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\cudart32_50_35.dll
+         已复制         1 个文件。
+       FinalizeBuildStatus:
+         正在删除文件“Debug\VectorDistance3.unsuccessfulbuild”。
+         正在对“Debug\VectorDistance3.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\dafang\VectorDistance3\VectorDistance3\VectorDistance3.vcxproj”(rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:09.25

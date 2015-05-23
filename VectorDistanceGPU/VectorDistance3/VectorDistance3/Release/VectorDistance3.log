@@ -1,0 +1,82 @@
+﻿生成启动时间为 2015/5/5 21:59:16。
+     1>项目“E:\dafang\VectorDistance3\VectorDistance3\VectorDistance3.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Release\VectorDistance3.unsuccessfulbuild”执行 Touch 任务。
+       AddCudaCompileDeps:
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /D_MBCS /I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c E:\dafang\VectorDistance3\VectorDistance3\kernel.cu 
+       AddCudaCompilePropsDeps:
+         已找到“CudaToolkitCustomDir”。
+         已找到“AdditionalDeps”。
+         已找到“CompileOut”。
+         已找到“Include”。
+         已找到“UseHostInclude”。
+         已找到“Keep”。
+         已找到“KeepDir”。
+         已找到“GenerateRelocatableDeviceCode”。
+         已找到“NvccCompilation”。
+         已找到“NvccPath”。
+         已找到“RequiredIncludes”。
+         已找到“TargetMachinePlatform”。
+         已找到“CInterleavedPTX”。
+         已找到“CodeGeneration”。
+         已找到“GPUDebugInfo”。
+         已找到“GenerateLineInfo”。
+         已找到“MaxRegCount”。
+         已找到“PtxAsOptionV”。
+         已找到“AdditionalCompilerOptions”。
+         已找到“Defines”。
+         已找到“UseHostDefines”。
+         已找到“Emulation”。
+         已找到“HostDebugInfo”。
+         已找到“FastMath”。
+         已找到“Optimization”。
+         已找到“Runtime”。
+         已找到“RuntimeChecks”。
+         已找到“TypeInfo”。
+         已找到“Warning”。
+         已找到“AdditionalOptions”。
+         已找到“CommandLineTemplate”。
+         已找到“PerformDeviceLink”。
+         已找到“LinkOut”。
+         已找到“AdditionalLibraryDirectories”。
+         已找到“UseHostLibraryDirectories”。
+         已找到“AdditionalDependencies”。
+         已找到“UseHostLibraryDependencies”。
+         已找到“GPUDebugInfo”。
+         已找到“Optimization”。
+         已找到“CodeGeneration”。
+         已找到“TargetMachinePlatform”。
+         已找到“Warning”。
+         已找到“RuntimeChecks”。
+         已找到“Runtime”。
+         已找到“TypeInfo”。
+         已找到“AdditionalCompilerOptions”。
+         已找到“Inputs”。
+         已找到“AdditionalOptions”。
+         已找到“CommandLineTemplate”。
+       CudaBuild:
+         Compiling CUDA source file kernel.cu...
+         cmd.exe /C "C:\Users\Administrator\AppData\Local\Temp\3b631b7e207e4d26860bc5924644b028.cmd"
+         "C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu"
+         
+         E:\dafang\VectorDistance3\VectorDistance3>"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu" 
+         kernel.cu
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(876): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(1846): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(2750): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(3698): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(4608): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(5503): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(6405): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h(7317): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(783): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(1662): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\program files (x86)\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h(4579): fatal error C1083: 无法打开包括文件:“sm_13_float_functions.h”: No such file or directory
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\BuildCustomizations\CUDA 5.0.targets(592,9): error MSB3721: 命令“"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"C:\Program Files (x86)\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\kernel.cu.obj" "E:\dafang\VectorDistance3\VectorDistance3\kernel.cu"”已退出，返回代码为 2。
+     1>已完成生成项目“E:\dafang\VectorDistance3\VectorDistance3\VectorDistance3.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.59
