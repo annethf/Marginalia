@@ -1,0 +1,22 @@
+Hair ClothColor Glasses Glass PhoneColor Bag
+Long Cor Y true Black yes
+Long Cor Y flase White yes
+Long Cor N true White yes
+Short Wh Y flase White yes
+Short Wh Y flase Color yes
+Short Bl Y flase White yes
+Short Bl Y flase White yes
+Long cor N flase White yes
+Long Cor Y flase Black yes
+Long Cor Y true White yes
+Long Bl Y true Black yes
+Long Wh Y true White yes
+Short Wh Y true Black yes
+Short Wh N flase Black yes
+Short Bl Y flase Black yes
+Short Cor N flase Black yes
+Short Bl Y true Black yes
+Long Cor Y flase Color no
+Long Cor Y flase White no
+Short Bl Y flase White no
+end

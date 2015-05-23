@@ -1,0 +1,22 @@
+ClothColor Glasses Glass PhoneColor Bag Hair
+Cor Y true Black Have yes
+Cor Y flase White Have yes
+Cor N true White Have no
+Wh Y flase White Have no
+Wh Y flase Color Have no
+Bl Y flase White Have no
+Bl Y flase White Have no
+cor N flase White Have yes
+Cor Y flase Black Have yes
+Cor Y true White Have yes
+Bl Y true Black Have yes
+Wh Y true White Have yes
+Wh Y true Black Have no
+Wh N flase Black Have no
+Bl Y flase Black Have no
+Cor N flase Black Have no
+Bl Y true Black Have no
+Cor Y flase Color NHave yes
+Cor Y flase White NHave yes
+Bl Y flase White NHave no
+end
